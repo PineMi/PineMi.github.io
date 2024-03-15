@@ -1,66 +1,76 @@
+/* Setting up gradient background */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
+  background: linear-gradient(75deg, #1f1f1f 50%, #484747 51%, #1f1f1f 58%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 30s linear infinite;
+  color: #d5d4d4;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
-header h1 {
-    font-size: 36px;
-    margin: 0;
+/* Basic styles for navigation */
+#navigation {
+  background-color: transparent;
+  text-align: left; /* Align the navigation links to the left */
+  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
 }
 
-nav {
-    background-color: #444;
-    padding: 10px 0;
+#navigation ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 2%;
+  margin-top: 30px;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+#navigation ul li {
+  display: inline-block;
+  margin-right: 10px;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+#navigation ul li a {
+  text-decoration: none;
+  color: rgb(188, 188, 188);
+  font-size: 150%;
+  padding: 5px 10px;
+  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
 }
 
-.container {
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Styling active link */
+#navigation ul li a.active {
+  background-color: black;
+  color: white;
 }
 
-.profile-pic {
-    text-align: center;
-    margin-bottom: 20px;
+/* Add padding to sections to offset navigation */
+section {
+  padding-top: 50px; /* Adjust as per your navigation height */
 }
 
-.profile-pic img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+/* Styling for orb container */
+#orb-container {
+  height: 300px; /* Set container height */
+  width: 80%; /* Adjust as needed */
+  max-width: 1000px; /* Maximum width if desired */
+  margin: 50px auto 50px; /* Add margin and center horizontally */
+  position: relative; /* Relative position */
 }
 
-.section-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
+/* Styling for orbs */
+.orb {
+  width: 50px; /* Set orb width */
+  height: 50px; /* Set orb height */
+  border-radius: 50%; /* Make orb circular */
+  background-color: rgb(207, 15, 15); /* Set orb background color */
+  display: flex; /* Use flexbox for centering content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: absolute; /* Position orbs absolutely within container */
 }
