@@ -74,18 +74,58 @@ section {
 
 /* Styling for orbs */
 .orb {
-  width: 80px; /* Set orb width */
-  height: 80px; /* Set orb height */
-  border-radius: 50%; /* Make orb circular */
-  background-color: rgb(50, 50, 65); /* Set orb background color */
+  width: 100px; /* Set orb width */
+  height: 150px; /* Set orb height */
+  background-color: rgba(98, 98, 113, 0); /* Set orb background color */
   display: flex; /* Use flexbox for centering content */
   justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
   position: absolute; /* Position orbs absolutely within container */
   overflow: hidden;
 }
 
-.orb img {
-  max-width: 90%;
-  max-height: 90%;
+.orb-logo {
+  margin-top: 10px;
+  border-radius: 50%;
+  padding: 5px 5px 5px 5px;
+  background-color: rgb(50, 50, 65);
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  position: absolute; /* Position orbs absolutely within container */
+  overflow: hidden;
+  display: flex;
+}
+
+.orb-logo img {
+  width: 90%;
+  height: 90%;
+}
+
+
+.orb p {
+  position: absolute;
+  margin-top: 110px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
+  opacity: 0;
+}
+
+.fadeIn {
+  animation: fadeIn 5s;
+
+}
+
+.fadeOut {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
 }
