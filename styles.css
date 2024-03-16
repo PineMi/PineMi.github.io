@@ -42,6 +42,15 @@ body {
   padding: 5px 10px;
   font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
 }
+#navigation ul li a:hover{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 150%;
+  padding: 5px 10px;
+  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
+}
+
+
 
 /* Styling active link */
 #navigation ul li a.active {
@@ -65,12 +74,18 @@ section {
 
 /* Styling for orbs */
 .orb {
-  width: 50px; /* Set orb width */
-  height: 50px; /* Set orb height */
+  width: 80px; /* Set orb width */
+  height: 80px; /* Set orb height */
   border-radius: 50%; /* Make orb circular */
-  background-color: rgb(207, 15, 15); /* Set orb background color */
+  background-color: rgb(50, 50, 65); /* Set orb background color */
   display: flex; /* Use flexbox for centering content */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   position: absolute; /* Position orbs absolutely within container */
+  overflow: hidden;
+}
+
+.orb img {
+  max-width: 90%;
+  max-height: 90%;
 }
