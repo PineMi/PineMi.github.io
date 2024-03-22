@@ -1,3 +1,4 @@
+
 //* Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -12,6 +13,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Orb-related code
 const orbs = document.querySelectorAll('.orb'); // Select all orbs
 const orb_container = document.getElementById('orb-container'); // Select container element
+const border = document.getElementById('orb-border-container') 
 
 const spacing = 20; // Spacing between orbs
 const wanderInterval = 3000; // Interval for wandering behavior (milliseconds)
@@ -19,6 +21,7 @@ const wanderDistance = 90; // Maximum distance for wandering (pixels)
 
 let isOrganized = false; // Flag to track if orbs are organized
 let wanderIntervalId; // Interval ID for wandering behavior
+let lockOrbs = false;
 
 // Function to randomize orb positions
 function randomizeOrbs() {
@@ -36,6 +39,7 @@ orbs.forEach((orb) => {
 clearInterval(wanderIntervalId); // Stop wandering when randomizing
 startWandering(); // Start wandering again after randomizing
 }
+
 
 // Function to organize orbs into rows and columns
 function organizeOrbs() {
@@ -63,11 +67,13 @@ function organizeOrbs() {
       currentColumn = 0;
       currentRow++;
     }
+
   });
 
   isOrganized = true; // Set flag to indicate orbs are organized
   clearInterval(wanderIntervalId); // Stop wandering when organized
 }
+
 
 // Function for orb wandering behavior
 function wanderOrbs() {
@@ -100,16 +106,30 @@ randomizeOrbs();
 // Event listener to organize orbs on container hover
 orb_container.addEventListener('mouseenter', organizeOrbs);
 
+// Event listener to lock orbs
+orb_container.addEventListener('click', ()=>{
+  if (isOrganized && !lockOrbs){
+    lockOrbs = true;
+    border.style.border = "5px solid #151515"
+  } else if (isOrganized && lockOrbs){
+    lockOrbs = false;
+    border.style.border = "5px solid #15151500"
+  }
+});
+
+
 // Event listener to randomize orbs again when leaving container
 orb_container.addEventListener('mouseleave', () => {
-  orbs.forEach((orb) => {
-    orb.children[1].classList.remove("fadeIn")
-    orb.children[1].classList.add("fadeOut")
-    orb.children[1].style = "opacity: 0;"
-  })
-  
 
-  randomizeOrbs();
-  isOrganized = false; // Reset organized flag
-  startWandering(); // Start wandering behavior
-});
+  if(!lockOrbs) {
+    orbs.forEach((orb) => {
+      orb.children[1].classList.remove("fadeIn")
+      orb.children[1].classList.add("fadeOut")
+      orb.children[1].style = "opacity: 0;"
+    })
+    randomizeOrbs();
+    isOrganized = false; // Reset organized flag
+    startWandering(); // Start wandering behavior
+  }
+
+  });

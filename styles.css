@@ -1,19 +1,38 @@
 /* Setting up gradient background */
 body {
-  background: linear-gradient(75deg, #1f1f1f 50%, #484747 51%, #1f1f1f 58%);
+  background: #0F0F0F 51%;
   background-size: 400% 400%;
-  animation: gradientAnimation 30s linear infinite;
   color: #d5d4d4;
 }
 
-/* Keyframes for gradient animation */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+h1 {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+  font-size: 300%;
+  padding: 5px 10px;
+  
+  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
+}
+
+#canvas-container {
+  position: relative;
+}
+
+#canvas-header-overlay {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  transform: translate(0%, 0%);
+  z-index: 1; /* Ensure the overlay content is above the canvas */  
+}
+
+.canvas-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Ensure the overlay content is above the canvas */
+  text-align: center;
 }
 
 /* Basic styles for navigation */
@@ -26,8 +45,8 @@ body {
 #navigation ul {
   list-style: none;
   padding: 0;
-  margin-left: 2%;
-  margin-top: 30px;
+  margin-top: 25px;
+  width: 100%;
 }
 
 #navigation ul li {
@@ -37,26 +56,27 @@ body {
 
 #navigation ul li a {
   text-decoration: none;
-  color: rgb(188, 188, 188);
-  font-size: 150%;
-  padding: 5px 10px;
-  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
-}
-#navigation ul li a:hover{
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 150%;
+  color: rgb(240, 240, 240);
+  font-size: 130%;
   padding: 5px 10px;
   font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
 }
 
+#navigation ul li a:hover{
+  text-decoration: none;
+  color: rgb(46, 235, 204);
+
+  padding: 5px 10px;
+  font-family: 'Montserrat', sans-serif; /* Specify Montserrat font */
+}
 
 
 /* Styling active link */
 #navigation ul li a.active {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
 }
+
 
 /* Add padding to sections to offset navigation */
 section {
@@ -64,12 +84,21 @@ section {
 }
 
 /* Styling for orb container */
+
+#orb-border-container {
+  border-radius: 25px;
+  padding: 20px;
+  height: 420px; /* Set container height */
+  border: 5px solid #15151500 ;
+}
+
 #orb-container {
-  height: 300px; /* Set container height */
+  height: 400px; /* Set container height */
   width: 80%; /* Adjust as needed */
   max-width: 1000px; /* Maximum width if desired */
-  margin: 50px auto 50px; /* Add margin and center horizontally */
+  margin: 60px auto 40px; /* Add margin and center horizontally */
   position: relative; /* Relative position */
+  
 }
 
 /* Styling for orbs */
@@ -129,3 +158,4 @@ section {
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
+
